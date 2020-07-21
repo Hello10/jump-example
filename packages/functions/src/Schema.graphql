@@ -1,0 +1,41 @@
+scalar Email
+scalar FirestoreId
+scalar JSON
+scalar URL
+scalar Username
+
+enum UserRole {
+  Admin
+  Member
+}
+
+enum UserStatus {
+  Pending
+  Active
+  Suspended
+}
+
+type User {
+  id: String!
+  email: Email!
+  role: UserRole!
+  status: UserStatus!
+}
+
+# TODO
+input UserUpdate {
+  todo: String!
+}
+
+type Mutation {
+  updateUser (data: UserUpdate!): User!
+}
+
+type Query {
+  ping: String!
+  version: String!
+  dupe (str: String! count: Int!): String!
+  loadUser: User!
+  getUser (id: FirestoreId!): User!
+  listUsers: [User!]!
+}

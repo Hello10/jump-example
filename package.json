@@ -1,0 +1,38 @@
+{
+  "name": "@jump-example/monorepo",
+  "version": "1.0.0",
+  "description": "Jump Example Monorepo",
+  "main": "index.js",
+  "repository": "https://github.com/hello10/JumpExample",
+  "license": "None",
+  "private": true,
+  "devDependencies": {
+    "babel-eslint": "10.1.0",
+    "eslint": "6.8.0",
+    "eslint-config-airbnb-base": "14.1.0",
+    "eslint-plugin-import": "2.20.2",
+    "eslint-plugin-promise": "4.2.1",
+    "firebase-tools": "8.6.0",
+    "lerna": "3.20.2"
+  },
+  "scripts": {
+    "deploy":              "lerna exec --concurrency 1 -- yarn deploy",
+    "deploy:functions":    "lerna exec --scope @jump/functions -- yarn deploy",
+    "deploy:www":          "lerna exec --scope @hello10/www    -- yarn deploy",
+    "bootstrap":           "yarn && lerna bootstrap",
+    "rebootstrap":         "yarn clean && yarn bootstrap",
+    "link:hello10":        "yarn link:groutcho-react && yarn link:react-hooks && yarn link:jump-client && yarn link:jump-server",
+    "link:groutcho-react": "lerna exec --scope @jump-example/www       -- yarn link groutcho-react",
+    "link:react-hooks":    "lerna exec --scope @jump-example/www       -- yarn link @hello10/react-hooks",
+    "link:jump-client":    "lerna exec --scope @jump-example/www       -- yarn link @hello10/jump-client",
+    "link:jump-server":    "lerna exec --scope @jump-example/functions -- yarn link @hello10/jump-server",
+    "lint":                "lerna exec --parallel -- yarn lint",
+    "clean":               "lerna exec --parallel -- yarn clean && rm -rf node_modules && rm -f yarn.lock",
+    "start":               "lerna exec --parallel -- yarn start"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  }
+}

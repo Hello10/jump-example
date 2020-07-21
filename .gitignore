@@ -5,9 +5,11 @@ firebase-debug.log*
 .firebase
 yarn-error.log*
 lerna-debug.log*
+ui-debug.log
 logs
 *.logs
 .cache
 dist
 .env*
 ./env/*.json
+./env/*.js
