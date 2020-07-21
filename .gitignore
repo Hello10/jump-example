@@ -11,5 +11,5 @@ logs
 .cache
 dist
 .env*
-./env/*.json
-./env/*.js
+env/*.json
+env/*.js
