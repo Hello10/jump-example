@@ -1,4 +1,4 @@
-import {getClient} from '../jump';
+import {getClient} from '@hello10/jump-client';
 
 import config from './config';
 

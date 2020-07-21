@@ -3,7 +3,7 @@ import {ApolloProvider} from '@apollo/react-hooks';
 import Firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
-import {ApplicationContainer} from '../jump';
+import {ApplicationContainer} from '@hello10/jump-client';
 
 import ApplicationLoading from './ApplicationLoading';
 import client from './client';
