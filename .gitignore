@@ -1,0 +1,13 @@
+.DS_Store
+node_modules
+yarn-debug.log*
+firebase-debug.log*
+.firebase
+yarn-error.log*
+lerna-debug.log*
+logs
+*.logs
+.cache
+dist
+.env*
+./env/*.json
