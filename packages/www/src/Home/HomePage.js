@@ -3,6 +3,7 @@ import Styled from 'styled-components';
 
 import {useSession, useRouter} from '../Application';
 import {GotoSettingsButton} from '../Settings';
+import {GotoUsersButton} from '../Users';
 
 const HomePageStyled = Styled.div`
   .Buttons {
@@ -35,6 +36,7 @@ export default function HomePage () {
             Sign out
           </button>
           <GotoSettingsButton />
+          <GotoUsersButton />
         </div>
       </div>
     );

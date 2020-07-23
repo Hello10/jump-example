@@ -1,8 +1,8 @@
 import Controller from './Controller';
 import {
+  //isAdminUser,
   isSignedIn,
-  isSessionUser,
-  isAdminUser
+  isSessionUser
 } from './Authorizers';
 
 export default class UserController extends Controller {
@@ -23,7 +23,7 @@ export default class UserController extends Controller {
         },
         listUsers: {
           resolver: this.list,
-          authorizer: isAdminUser
+          authorizer: isSignedIn
         }
       },
       Mutation: {

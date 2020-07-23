@@ -1,5 +1,1 @@
-import SigninPage from './SigninPage';
-
-export {
-  SigninPage
-};
+export {default as SigninPage} from './SigninPage';

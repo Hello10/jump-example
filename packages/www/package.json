@@ -6,10 +6,9 @@
   "license": "UNLICENSED",
   "main": "index.js",
   "dependencies": {
-    "@apollo/client": "3.0.2",
     "@apollo/react-hooks": "3.1.5",
     "@hello10/classie": "1.1.1",
-    "@hello10/jump-client": "2.0.0",
+    "@hello10/jump-client": "2.0.2",
     "@hello10/jump-util": "1.0.0",
     "@hello10/logger": "0.0.8",
     "@hello10/react-hooks": "1.2.3",
@@ -26,7 +25,6 @@
     "prop-types": "15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-router-dom": "5.2.0",
     "styled-components": "5.0.0",
     "styled-reset": "4.1.0"
   },
@@ -38,7 +36,7 @@
   },
   "scripts": {
     "build": "NODE_ENV=production parcel build src/index.html --public-url ./ --target browser --detailed-report",
-    "clean": "rm -rf node_modules && rm -rf dist",
+    "clean": "rm -rf node_modules && rm -rf dist && rm -f yarn.lock && rm -rf .cache",
     "deploy": "yarn build && yarn firebase deploy --only hosting",
     "lint": "eslint ./src",
     "start": "parcel src/index.html --open"

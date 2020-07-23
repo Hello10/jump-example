@@ -2,6 +2,7 @@ import {HomePage} from '../Home';
 import {NotFoundPage} from '../NotFound';
 import {SettingsPage} from '../Settings';
 import {SigninPage} from '../Signin';
+import {UsersPage} from '../Users';
 
 const routes = {
   Home: {
@@ -21,6 +22,11 @@ const routes = {
     pattern: '/signin',
     page: SigninPage,
     session: false
+  },
+  Users: {
+    pattern: '/users',
+    page: UsersPage,
+    session: true
   }
 };
 

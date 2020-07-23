@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "main": "dist/index.js",
   "dependencies": {
-    "@hello10/jump-server": "2.0.0",
+    "@hello10/jump-server": "2.0.2",
     "@hello10/jump-util": "1.0.1",
     "apollo-server-cloud-functions": "2.14.2",
     "firebase-admin": "9.0.0",
@@ -24,7 +24,7 @@
   },
   "scripts": {
     "build": "yarn parcel build src/index.js --target node --detailed-report",
-    "clean": "rm -rf node_modules && rm -rf dist && rm -f yarn.lock",
+    "clean": "rm -rf node_modules && rm -rf dist && rm -f yarn.lock && rm -rf .cache",
     "deploy": "yarn firebase deploy --only functions",
     "lint": "eslint ./src",
     "logs": "yarn firebase functions:log",
