@@ -7,8 +7,7 @@ export default function GotoSettingsButton () {
   return (
     <button
       onClick={()=> {
-        const count = Math.ceil(Math.random() * 10);
-        router.go(`/settings/${count}`);
+        router.go('/settings');
       }}
       className="Settings"
     >

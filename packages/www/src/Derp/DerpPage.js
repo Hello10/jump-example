@@ -3,15 +3,15 @@ import Styled from 'styled-components';
 import gql from 'graphql-tag';
 import PropTypes from 'prop-types';
 
-import GotoSettingsButton from './GotoSettingsButton';
+import GotoDerpButton from './GotoDerpButton';
 
 const SettingsPageStyled = Styled.div``;
 
 export default function SettingsPage ({dupe}) {
   return (
     <SettingsPageStyled className="SettingsPage">
-      Settings? {dupe}!
-      <GotoSettingsButton />
+      Derp? {dupe}!
+      <GotoDerpButton />
     </SettingsPageStyled>
   );
 }
@@ -20,7 +20,7 @@ SettingsPage.propTypes = {
   dupe: PropTypes.string
 };
 
-SettingsPage.query = function query ({count}) {
+SettingsPage.query = function query ({derp, count}) {
   return {
     query: gql`
       query dupe ($str: String!, $count: Int!) {
@@ -29,7 +29,7 @@ SettingsPage.query = function query ({count}) {
     `,
     variables: {
       count: parseInt(count, 10),
-      str: 'settings'
+      str: derp
     }
   };
 };

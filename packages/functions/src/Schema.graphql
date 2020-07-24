@@ -20,15 +20,17 @@ type User {
   email: Email!
   role: UserRole!
   status: UserStatus!
+  catchphrase: String
+  description: String
 }
 
-# TODO
 input UserUpdate {
-  todo: String!
+  catchphrase: String
+  description: String
 }
 
 type Mutation {
-  updateUser (data: UserUpdate!): User!
+  updateUser (id: String!, data: UserUpdate!): User!
 }
 
 type Query {
@@ -36,6 +38,6 @@ type Query {
   version: String!
   dupe (str: String! count: Int!): String!
   loadUser: User!
-  getUser (id: FirestoreId!): User!
+  getUser (id: String!): User!
   listUsers: [User!]!
 }
