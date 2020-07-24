@@ -28,8 +28,8 @@ export default function HomePage () {
         Signed in as {user.email}
         <div className="Buttons">
           <button
-            onClick={()=> {
-              session.end();
+            onClick={async ()=> {
+              await session.end();
             }}
             className="Signout"
           >
