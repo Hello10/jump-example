@@ -8,10 +8,9 @@
   "dependencies": {
     "@apollo/react-hooks": "3.1.5",
     "@hello10/classie": "1.1.1",
-    "@hello10/jump-client": "2.0.2",
-    "@hello10/jump-util": "1.0.0",
+    "@hello10/jump-client": "2.0.3",
+    "@hello10/jump-util": "2.0.3",
     "@hello10/logger": "0.0.8",
-    "@hello10/react-hooks": "1.2.3",
     "apollo-cache-inmemory": "1.6.5",
     "apollo-client": "2.6.8",
     "apollo-link-context": "1.0.20",

@@ -1,7 +1,6 @@
 import Firebase from 'firebase/app';
 import 'firebase/auth';
-import {useSingleton} from '@hello10/react-hooks';
-import {FirebaseSession} from '@hello10/jump-client';
+import {FirebaseSession, useSingleton} from '@hello10/jump-client';
 
 import SessionUser from './SessionUser';
 import client from './client';
