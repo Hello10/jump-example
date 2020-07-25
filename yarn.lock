@@ -1664,10 +1664,10 @@
   resolved "https://registry.yarnpkg.com/@hello10/eslint-config/-/eslint-config-1.0.2.tgz#895b3ae27f4de4b9d679adf666cc3aa7a47385f7"
   integrity sha512-cJI10UPsdhh9T/o+zBQT8WVr/dGW0CtBiBc2FEPAUNu40EJIOe55P9Cj+Z/PauUD/kEJiiayisDbsmyTAWsTlw==
 
-"@hello10/jump-client@2.0.4":
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/@hello10/jump-client/-/jump-client-2.0.4.tgz#78382c2ec2d9fe22cd16b8a13b4c2730ebf4fb6e"
-  integrity sha512-pgGMx3umkZxlZNNE+Mgf9xFS6pMu35BcTYZq0a5Xd8sWROwBAJfAqK0JULmZCx7i4jIOlHNss9twtZY1utoroQ==
+"@hello10/jump-client@2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@hello10/jump-client/-/jump-client-2.0.5.tgz#254d4bd352978db468da21a550e2526b00e0e405"
+  integrity sha512-vRP129pubRID7v2gjiQ7MPZ69UUb3bQKSQltoyIzln4yfVFiDhRKtP5SHNxpDSAEKUYMMFaY3kRnStaFt41jeg==
   dependencies:
     "@hello10/react-hooks" "1.2.4"
     apollo-cache-inmemory "1.6.5"
@@ -1681,10 +1681,10 @@
     lodash.get "4.4.2"
     prop-types "15.7.2"
 
-"@hello10/jump-server@2.0.4":
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/@hello10/jump-server/-/jump-server-2.0.4.tgz#ff477ba41ba76902885bed6477e165456e45e1ce"
-  integrity sha512-pNcjpYrYhaDCzBqsIp71KoqwR3JjTt00liBlvjiBwhKIQ5RqomWPQkPwtuhrAqXxL3SwWbpwZBS1CDEaQLV+nw==
+"@hello10/jump-server@2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@hello10/jump-server/-/jump-server-2.0.5.tgz#a5dd769f0a34ef624021e95ea648a1f26659b5c7"
+  integrity sha512-APMenCjxfCC0PVgbnxlEeEOv76g6tb9dcbL0ch2VU1EB4yY0jJzraLqhcKi5i47vP0XbYo7UUgberrE1424NhA==
   dependencies:
     "@hello10/logger" "0.0.8"
     "@hello10/util" "1.10.0"
@@ -1695,10 +1695,10 @@
     express "4.17.1"
     lodash "4.17.19"
 
-"@hello10/jump-util@2.0.4":
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/@hello10/jump-util/-/jump-util-2.0.4.tgz#131d0029be1ecec0a957a238923d0c56dc0cc482"
-  integrity sha512-QmFVipZlzbxLqzWEDFYPiQtgxsg98G+jmMI++JVRwWEw9D+7y2peKESQBLbAU3rLAlu/Z1ekyveHH44/Q3cWUQ==
+"@hello10/jump-util@2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@hello10/jump-util/-/jump-util-2.0.5.tgz#b9edde100cfc7876a6830f7f8e39f039eea7f970"
+  integrity sha512-dJwDZfQ33CdxUJeX5Vh0Hg2K2sKEk6rW/Vekhgewr109seOrbRzlKDwjjvwrsevHOVtsFSUFWl+qdmMS1radUw==
   dependencies:
     "@hello10/util" "1.10.0"
     email-regex "4.0.0"
