@@ -13,15 +13,17 @@ const redirects = {
     return match ? false : 'NotFound';
   },
   Session: (match)=> {
-    const {route, input: {user}} = match;
-    const signed_in = user && user.isSignedIn();
+    if (match) {
+      const {route, input: {user}} = match;
+      const signed_in = user && user.isSignedIn();
 
-    if (wantsSession(route) && !signed_in) {
-      return 'Signin';
-    }
+      if (wantsSession(route) && !signed_in) {
+        return 'Signin';
+      }
 
-    if (wantsNoSession(route) && signed_in) {
-      return 'Home';
+      if (wantsNoSession(route) && signed_in) {
+        return 'Home';
+      }
     }
 
     return false;

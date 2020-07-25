@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Styled from 'styled-components';
 
 import useSession from './useSession';
+import useRouter from './useRouter';
 
 const SessionLoadingStyled = Styled.div`
   .Message {
@@ -12,6 +13,7 @@ const SessionLoadingStyled = Styled.div`
 
 function Error ({error}) {
   const session = useSession();
+  const router = useRouter();
 
   return (
     <div className="Error">
@@ -24,6 +26,13 @@ function Error ({error}) {
         }}
       >
         Reload
+      </button>
+      <button
+        onClick={()=> {
+          router.go('/');
+        }}
+      >
+        Home
       </button>
     </div>
   );
