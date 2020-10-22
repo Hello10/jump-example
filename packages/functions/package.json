@@ -1,25 +1,25 @@
 {
   "name": "@jump-example/functions",
   "description": "Jump Functions",
-  "version": "1.0.0",
+  "version": "3.0.3",
   "private": true,
   "license": "UNLICENSED",
   "main": "dist/index.js",
   "dependencies": {
-    "@hello10/jump-server": "2.0.6",
-    "@hello10/jump-util": "2.0.6",
-    "apollo-server-cloud-functions": "2.14.2",
-    "firebase-admin": "9.0.0",
-    "firebase-functions": "3.8.0",
+    "@hello10/jump-server": "3.0.2",
+    "@hello10/jump-util": "3.0.2",
+    "apollo-server-cloud-functions": "2.18.2",
+    "firebase-admin": "9.2.0",
+    "firebase-functions": "3.11.0",
     "graphql": "14.2.1",
-    "graphql-tools": "6.0.12",
-    "graphql-type-json": "0.3.1",
-    "graphql-validated-types": "2.7.0",
-    "lodash": "4.17.15"
+    "graphql-tools": "6.2.4",
+    "graphql-type-json": "0.3.2",
+    "graphql-validated-types": "2.8.1",
+    "lodash": "4.17.20"
   },
   "devDependencies": {
     "@hello10/eslint-config": "1.0.2",
-    "firebase-functions-test": "0.2.1",
+    "firebase-functions-test": "0.2.2",
     "parcel-bundler": "1.12.4"
   },
   "scripts": {
@@ -34,6 +34,6 @@
     "watch": "yarn parcel src/index.js --target node"
   },
   "engines": {
-    "node": "10"
+    "node": "12"
   }
 }

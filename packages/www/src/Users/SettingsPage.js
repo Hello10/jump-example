@@ -1,10 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Styled from 'styled-components';
-import gql from 'graphql-tag';
-import {useQuery, useMutation} from '@apollo/react-hooks';
+import {useMutation} from '@apollo/client';
 import {useStateBlob} from '@hello10/jump-client';
-import {omitTypename} from '@hello10/jump-util';
-import {useSession} from '../Application';
+
+import {
+  GetUserForEditQuery,
+  UpdateUserMutation
+} from './UserGQL';
 
 const SettingsPageStyled = Styled.div`
   input, textarea {
@@ -15,47 +18,14 @@ const SettingsPageStyled = Styled.div`
   }
 `;
 
-const GET_USER = gql`
-  query getUser ($id: String!) {
-    getUser (id: $id) {
-      catchphrase
-      description
-    }
-  }
-`;
-
-const UPDATE_USER = gql`
-  mutation UpdateUser ($id: String!, $data: UserUpdate!) {
-    updateUser (id: $id, data: $data) {
-      catchphrase
-      description
-    }
-  }
-`;
-
-export default function SettingsPage () {
-  const session = useSession();
-  const user_id = session.user.id;
-
-  const {loading, error, data} = useQuery(
-    GET_USER,
-    {
-      variables: {
-        id: user_id
-      }
-    }
-  );
-
+export default function SettingsPage ({data: {getUser: user}}) {
   const [
     updateUser,
     {loading: mutation_loading}
-  ] = useMutation(UPDATE_USER);
+  ] = useMutation(UpdateUserMutation);
 
   const [edited, setEdited] = useStateBlob({});
   const [update, setUpdate] = useStateBlob({});
-
-  if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
 
   function setUpdateField (name) {
     return function set (event) {
@@ -68,10 +38,13 @@ export default function SettingsPage () {
     };
   }
 
-  const user = omitTypename({...data.getUser});
-  for (const attr of Object.keys(user)) {
+  const attrs = ['catchphrase', 'description'];
+  const data = {};
+  for (const attr of attrs) {
     if (edited[attr]) {
-      user[attr] = update[attr];
+      data[attr] = update[attr];
+    } else {
+      data[attr] = user[attr];
     }
   }
 
@@ -82,8 +55,8 @@ export default function SettingsPage () {
           event.preventDefault();
           updateUser({
             variables: {
-              id: user_id,
-              data: user
+              id: user.id,
+              data
             }
           });
         }}
@@ -91,7 +64,7 @@ export default function SettingsPage () {
         <input
           className="Catchphrase"
           type="text"
-          value={user.catchphrase || ''}
+          value={data.catchphrase || ''}
           onChange={setUpdateField('catchphrase')}
           placeholder="Catchphrase"
         />
@@ -99,7 +72,7 @@ export default function SettingsPage () {
           className="Description"
           onChange={setUpdateField('description')}
           placeholder="Description"
-          value={user.description || ''}
+          value={data.description || ''}
         />
         <button
           type="submit"
@@ -111,3 +84,17 @@ export default function SettingsPage () {
     </SettingsPageStyled>
   );
 }
+
+SettingsPage.propTypes = {
+  data: PropTypes.object
+};
+
+SettingsPage.query = function query ({user}) {
+  console.log('hihihi', user);
+  return {
+    query: GetUserForEditQuery,
+    variables: {
+      id: user.id
+    }
+  };
+};

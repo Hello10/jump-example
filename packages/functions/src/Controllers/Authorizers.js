@@ -32,3 +32,18 @@ export function isSessionUser (path) {
     return (user.id === id);
   });
 }
+
+export const isDataAuthor = isSessionUser('args.data.author_id');
+
+export function isIdAuthor (type) {
+  return async function isAuthor ({args, context}) {
+    const {user} = context;
+    if (!user) {
+      return false;
+    }
+    const Type = context.getCollection(type);
+    const {id} = args;
+    const obj = await Type.get({id, assert: true});
+    return (user.id === obj.author_id);
+  };
+}

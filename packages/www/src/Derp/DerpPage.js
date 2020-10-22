@@ -7,7 +7,7 @@ import GotoDerpButton from './GotoDerpButton';
 
 const SettingsPageStyled = Styled.div``;
 
-export default function SettingsPage ({dupe}) {
+export default function SettingsPage ({data: {dupe}}) {
   return (
     <SettingsPageStyled className="SettingsPage">
       Derp? {dupe}!
@@ -17,10 +17,10 @@ export default function SettingsPage ({dupe}) {
 }
 
 SettingsPage.propTypes = {
-  dupe: PropTypes.string
+  data: PropTypes.object
 };
 
-SettingsPage.query = function query ({derp, count}) {
+SettingsPage.query = function query ({params: {derp, count}}) {
   return {
     query: gql`
       query dupe ($str: String!, $count: Int!) {

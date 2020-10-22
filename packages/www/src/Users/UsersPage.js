@@ -1,17 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Styled from 'styled-components';
-import gql from 'graphql-tag';
+
+import {useRouter} from '../Application';
+import {ListUsersQuery} from './UserGQL';
 
 const UsersPageStyled = Styled.div`
+  button {
+    display: block;
+  }
 `;
 
 function User ({user}) {
+  const router = useRouter();
   const {id, email} = user;
   return (
-    <div className="User">
-      {id} {email}
-    </div>
+    <button
+      className="User"
+      onClick={()=> router.go(`/users/${id}`)}
+    >
+      {email}
+    </button>
   );
 }
 
@@ -22,7 +31,7 @@ User.propTypes = {
   })
 };
 
-export default function UsersPage ({listUsers}) {
+export default function UsersPage ({data: {listUsers}}) {
   const $users = listUsers.map((user)=> {
     return (
       <User
@@ -39,18 +48,11 @@ export default function UsersPage ({listUsers}) {
 }
 
 UsersPage.propTypes = {
-  listUsers: PropTypes.arrayOf(PropTypes.object)
+  data: PropTypes.object
 };
 
 UsersPage.query = function query () {
   return {
-    query: gql`
-      query listUsers {
-        listUsers {
-          id
-          email
-        }
-      }
-    `
+    query: ListUsersQuery
   };
 };

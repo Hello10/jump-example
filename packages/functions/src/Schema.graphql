@@ -3,6 +3,7 @@ scalar FirestoreId
 scalar JSON
 scalar URL
 scalar Username
+scalar Date
 
 enum UserRole {
   Admin
@@ -16,21 +17,72 @@ enum UserStatus {
 }
 
 type User {
-  id: String!
+  id: FirestoreId!
   email: Email!
   role: UserRole!
   status: UserStatus!
   catchphrase: String
   description: String
+  posts: [Post!]!
+  comments: [Comment!]!
+  created_at: Date!
+  updated_at: Date!
 }
 
-input UserUpdate {
+input UpdateUser {
   catchphrase: String
   description: String
 }
 
+type Post {
+  id: FirestoreId!
+  title: String!
+  body: String!
+  author_id: FirestoreId!
+  author: User!
+  comments: [Comment!]!
+  created_at: Date!
+  updated_at: Date!
+}
+
+input CreatePost {
+  title: String!
+  body: String!
+  author_id: FirestoreId!
+}
+
+input UpdatePost {
+  title: String
+  body: String
+}
+
+type Comment {
+  id: FirestoreId!
+  body: String!
+  post_id: FirestoreId!
+  post: Post!
+  author_id: FirestoreId!
+  author: User!
+  created_at: Date!
+  updated_at: Date!
+}
+
+input CreateComment {
+  body: String!
+  post_id: FirestoreId!
+  author_id: FirestoreId!
+}
+
+input UpdateComment {
+  body: String!
+}
+
 type Mutation {
-  updateUser (id: String!, data: UserUpdate!): User!
+  updateUser (id: FirestoreId!, data: UpdateUser!): User!
+  createPost (data: CreatePost!): Post!
+  updatePost (id: FirestoreId!, data: UpdatePost!): Post!
+  createComment (data: CreateComment!): Comment!
+  updateComment (id: FirestoreId!, data: UpdateComment!): Comment!
 }
 
 type Query {
@@ -38,6 +90,8 @@ type Query {
   version: String!
   dupe (str: String! count: Int!): String!
   loadUser: User!
-  getUser (id: String!): User!
+  getUser (id: FirestoreId!): User!
   listUsers: [User!]!
+  getPost (id: FirestoreId!): Post!
+  listPosts: [Post!]!
 }

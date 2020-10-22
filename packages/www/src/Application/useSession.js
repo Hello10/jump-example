@@ -6,7 +6,6 @@ import SessionUser from './SessionUser';
 import client from './client';
 
 export default function useSession () {
-  const auth = Firebase.auth();
-  const options = {Firebase, auth, SessionUser, client};
+  const options = {Firebase, SessionUser, client};
   return useSingleton(FirebaseSession, options);
 }

@@ -12,7 +12,6 @@ const HomePageStyled = Styled.div`
   .Buttons {
     display: block;
     margin-top: 10px;
-
     button {
       margin-right: 5px;
     }

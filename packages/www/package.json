@@ -1,37 +1,33 @@
 {
   "name": "@jump-example/www",
   "description": "Jump WWW",
-  "version": "1.0.0",
+  "version": "3.0.3",
   "private": true,
   "license": "UNLICENSED",
   "main": "index.js",
   "dependencies": {
-    "@apollo/react-hooks": "3.1.5",
+    "@apollo/client": "3.2.5",
     "@hello10/classie": "1.1.1",
-    "@hello10/jump-client": "2.0.6",
-    "@hello10/jump-util": "2.0.6",
+    "@hello10/jump-client": "3.0.2",
+    "@hello10/jump-util": "3.0.2",
     "@hello10/logger": "0.0.8",
-    "apollo-cache-inmemory": "1.6.5",
-    "apollo-client": "2.6.8",
-    "apollo-link-context": "1.0.20",
-    "apollo-link-http": "1.5.17",
     "babel-polyfill": "6.26.0",
     "email-regex": "4.0.0",
-    "firebase": "7.16.1",
-    "graphql": "^14.0.0 || ^15.0.0",
-    "graphql-tag": "2.10.3",
+    "firebase": "7.24.0",
+    "graphql": "14.2.1",
+    "graphql-tag": "2.11.0",
     "jsonp": "0.2.1",
     "prop-types": "15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "styled-components": "5.0.0",
-    "styled-reset": "4.1.0"
+    "styled-components": "5.2.0",
+    "styled-reset": "4.2.3"
   },
   "devDependencies": {
     "@hello10/eslint-config-react": "1.0.2",
-    "eslint-plugin-react": "7.19.0",
+    "eslint-plugin-react": "7.21.5",
     "parcel-bundler": "1.12.4",
-    "parcel-plugin-static-files-copy": "2.4.3"
+    "parcel-plugin-static-files-copy": "2.5.0"
   },
   "scripts": {
     "build": "NODE_ENV=production parcel build src/index.html --public-url ./ --target browser --detailed-report",

@@ -4,6 +4,7 @@ import {NotFoundPage} from '../NotFound';
 import {SigninPage} from '../Signin';
 import {
   SettingsPage,
+  UserPage,
   UsersPage
 } from '../Users';
 
@@ -29,6 +30,11 @@ const routes = {
     pattern: '/signin',
     page: SigninPage,
     session: false
+  },
+  User: {
+    pattern: '/users/:id',
+    page: UserPage,
+    session: true
   },
   Users: {
     pattern: '/users',

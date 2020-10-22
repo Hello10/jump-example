@@ -1,3 +1,4 @@
+export * from './Fragments';
 export {default as Application} from './Application';
 export {default as config} from './config';
 export {default as logger} from './logger';

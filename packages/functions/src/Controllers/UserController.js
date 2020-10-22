@@ -1,6 +1,5 @@
 import Controller from './Controller';
 import {
-  //isAdminUser,
   isSignedIn,
   isSessionUser
 } from './Authorizers';
@@ -15,7 +14,7 @@ export default class UserController extends Controller {
       Query: {
         getUser: {
           resolver: this.get,
-          authorizer: isSessionUser('args.id')
+          authorizer: isSignedIn
         },
         loadUser: {
           resolver: this.loadUser,
@@ -32,13 +31,31 @@ export default class UserController extends Controller {
           authorizer: isSessionUser('args.id')
         }
       },
-      User: {}
+      User: {
+        posts: {
+          resolver: this.byAuthor('Post'),
+          authorizer: isSignedIn
+        },
+        comments: {
+          resolver: this.byAuthor('Comment'),
+          authorizer: isSignedIn
+        }
+      }
     };
   }
 
   loadUser ({context}) {
     const {user_id} = context;
-    const User = this.collection();
+    const User = this.collection;
     return User.loadForAuthUserId(user_id);
+  }
+
+  byAuthor (type) {
+    return function byAuthor ({obj, context}) {
+      const Type = context.getCollection(type);
+      return Type.byAuthor({
+        author_id: obj.id
+      });
+    };
   }
 }
