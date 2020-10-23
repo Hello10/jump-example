@@ -6,7 +6,11 @@ import {
   SettingsPage,
   UserPage,
   UsersPage
-} from '../Users';
+} from '../User';
+import {
+  PostPage,
+  PostsPage
+} from '../Post';
 
 const routes = {
   Home: {
@@ -39,6 +43,16 @@ const routes = {
   Users: {
     pattern: '/users',
     page: UsersPage,
+    session: true
+  },
+  Posts: {
+    pattern: '/posts',
+    page: PostsPage,
+    session: true
+  },
+  Post: {
+    pattern: '/posts/:id',
+    page: PostPage,
     session: true
   }
 };

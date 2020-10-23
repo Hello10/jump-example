@@ -1,12 +1,12 @@
 import React from 'react';
 import Styled from 'styled-components';
 
-import {useSession, useRouter} from '../Application';
-import {GotoDerpButton} from '../Derp';
 import {
-  GotoSettingsButton,
-  GotoUsersButton
-} from '../Users';
+  RouteButton,
+  useSession,
+  useRouter
+} from '../Application';
+import {GotoDerpButton} from '../Derp';
 
 const HomePageStyled = Styled.div`
   .Buttons {
@@ -37,9 +37,25 @@ export default function HomePage () {
           >
             Sign out
           </button>
-          <GotoSettingsButton />
-          <GotoUsersButton />
-          <GotoDerpButton />
+          <RouteButton
+            route="/posts"
+            className="Posts"
+          >
+            posts
+          </RouteButton>
+          <RouteButton
+            route="/settings"
+            className="Settings"
+          >
+            settings
+          </RouteButton>
+          <RouteButton
+            route="/users"
+            className="Users"
+          >
+            users
+          </RouteButton>
+          <GotoDerpButton/>
         </div>
       </div>
     );

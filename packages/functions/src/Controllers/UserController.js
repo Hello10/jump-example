@@ -33,11 +33,11 @@ export default class UserController extends Controller {
       },
       User: {
         posts: {
-          resolver: this.byAuthor('Post'),
+          resolver: this._byAuthor('Post'),
           authorizer: isSignedIn
         },
         comments: {
-          resolver: this.byAuthor('Comment'),
+          resolver: this._byAuthor('Comment'),
           authorizer: isSignedIn
         }
       }
@@ -50,7 +50,7 @@ export default class UserController extends Controller {
     return User.loadForAuthUserId(user_id);
   }
 
-  byAuthor (type) {
+  _byAuthor (type) {
     return function byAuthor ({obj, context}) {
       const Type = context.getCollection(type);
       return Type.byAuthor({

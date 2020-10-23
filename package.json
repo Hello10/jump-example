@@ -1,6 +1,6 @@
 {
   "name": "@jump-example/monorepo",
-  "version": "3.0.0",
+  "version": "3.1.1",
   "description": "Jump Example Monorepo",
   "main": "index.js",
   "repository": "https://github.com/hello10/JumpExample",

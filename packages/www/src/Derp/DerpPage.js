@@ -5,13 +5,17 @@ import PropTypes from 'prop-types';
 
 import GotoDerpButton from './GotoDerpButton';
 
-const SettingsPageStyled = Styled.div``;
+const SettingsPageStyled = Styled.div`
+  button {
+    display: block;
+  }
+`;
 
 export default function SettingsPage ({data: {dupe}}) {
   return (
     <SettingsPageStyled className="SettingsPage">
       Derp? {dupe}!
-      <GotoDerpButton />
+      <GotoDerpButton/>
     </SettingsPageStyled>
   );
 }

@@ -1,5 +1,1 @@
-import NotFoundPage from './NotFoundPage';
-
-export {
-  NotFoundPage
-};
+export {default as NotFoundPage} from './NotFoundPage';

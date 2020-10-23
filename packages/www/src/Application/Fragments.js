@@ -19,6 +19,7 @@ export const CommentFragment = gql`
     author {
       ...UserFragment
     }
+    created_at
   }
 `;
 

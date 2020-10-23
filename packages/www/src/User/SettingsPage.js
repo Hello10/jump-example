@@ -4,6 +4,7 @@ import Styled from 'styled-components';
 import {useMutation} from '@apollo/client';
 import {useStateBlob} from '@hello10/jump-client';
 
+import {useRouter} from '../Application';
 import {
   GetUserForEditQuery,
   UpdateUserMutation
@@ -19,6 +20,8 @@ const SettingsPageStyled = Styled.div`
 `;
 
 export default function SettingsPage ({data: {getUser: user}}) {
+  const router = useRouter();
+
   const [
     updateUser,
     {loading: mutation_loading}
@@ -50,6 +53,16 @@ export default function SettingsPage ({data: {getUser: user}}) {
 
   return (
     <SettingsPageStyled>
+      <h1>
+        Edit <span
+          onClick={(event)=> {
+            event.preventDefault();
+            router.go(`/users/${user.id}`);
+          }}
+        >
+          {user.email}
+        </span>
+      </h1>
       <form
         onSubmit={(event)=> {
           event.preventDefault();
@@ -90,7 +103,6 @@ SettingsPage.propTypes = {
 };
 
 SettingsPage.query = function query ({user}) {
-  console.log('hihihi', user);
   return {
     query: GetUserForEditQuery,
     variables: {

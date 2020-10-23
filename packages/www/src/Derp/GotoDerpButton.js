@@ -1,18 +1,17 @@
 import React from 'react';
 
-import {useRouter} from '../Application';
+import {RouteButton} from '../Application';
 
 export default function GotoDerpButton () {
-  const router = useRouter();
   return (
-    <button
-      onClick={()=> {
+    <RouteButton
+      route={()=> {
         const count = Math.ceil(Math.random() * 10);
-        router.go(`/derp/derp/${count}`);
+        return `/derp/derp/${count}`;
       }}
-      className="derp"
+      className="Derp"
     >
       derp
-    </button>
+    </RouteButton>
   );
 }
